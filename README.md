@@ -13,3 +13,7 @@ The data source  a house price dataset from a Regression competation on [Kaggle]
 Our entire work history and updates will be commited to this repository. To look up files/scripts, Please refer the index below.
 
 ----- File Index -----
+
+`data description.txt`: meanings of columns and the values.
+`train.csv`:
+`test.csv`:
