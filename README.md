@@ -15,5 +15,7 @@ Our entire work history and updates will be commited to this repository. To look
 ----- File Index -----
 
 `data description.txt`: meanings of columns and the values.
+
 `train.csv`:
+
 `test.csv`:
