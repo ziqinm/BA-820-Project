@@ -16,6 +16,6 @@ Our entire work history and updates will be commited to this repository. To look
 
 `data description.txt`: meanings of columns and the values.
 
-`train.csv`:
+`train.csv`: the training set.
 
-`test.csv`:
+`test.csv`: the test set.
