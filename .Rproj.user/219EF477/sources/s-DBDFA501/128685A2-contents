@@ -97,6 +97,7 @@ textScale$PoolQC = replace_na(textScale$PoolQC, 0)
 # unique(textScale$Utilities)
 textScale$Utilities = gsub("AllPub", 4, textScale$Utilities)
 textScale$Utilities = gsub("NoSeWa", 2, textScale$Utilities)
+textScale$Utilities = as.numeric(textScale$Utilities)
 # BsmtFinType1: GLQ = 6, ALQ = 5, BLQ = 4, Rec = 3, LwQ = 2, Unf = 1, NA = 0
 # unique(textScale$BsmtFinType1)
 textScale$BsmtFinType1 = gsub("GLQ", 6, textScale$BsmtFinType1)
@@ -105,7 +106,8 @@ textScale$BsmtFinType1 = gsub("BLQ", 4, textScale$BsmtFinType1)
 textScale$BsmtFinType1 = gsub("Rec", 3, textScale$BsmtFinType1)
 textScale$BsmtFinType1 = gsub("LwQ", 2, textScale$BsmtFinType1)
 textScale$BsmtFinType1 = gsub("Unf", 1, textScale$BsmtFinType1)
-textScale$BsmtFinType1 = gsub("NA", 0, textScale$BsmtFinType1)
+textScale$BsmtFinType1 = as.numeric(textScale$BsmtFinType1)
+textScale$BsmtFinType1 = replace_na(textScale$BsmtFinType1, 0)
 # BsmtFinType2: GLQ = 6, ALQ = 5, BLQ = 4, Rec = 3, LwQ = 2, Unf = 1, NA = 0
 # unique(textScale$BsmtFinType2)
 textScale$BsmtFinType2 = gsub("GLQ", 6, textScale$BsmtFinType2)
@@ -114,7 +116,8 @@ textScale$BsmtFinType2 = gsub("BLQ", 4, textScale$BsmtFinType2)
 textScale$BsmtFinType2 = gsub("Rec", 3, textScale$BsmtFinType2)
 textScale$BsmtFinType2 = gsub("LwQ", 2, textScale$BsmtFinType2)
 textScale$BsmtFinType2 = gsub("Unf", 1, textScale$BsmtFinType2)
-textScale$BsmtFinType2 = gsub("NA", 0, textScale$BsmtFinType2)
+textScale$BsmtFinType2 = as.numeric(textScale$BsmtFinType2)
+textScale$BsmtFinType2 = replace_na(textScale$BsmtFinType2, 0)
 # Electrical: SBrkr = 5, FuseA = 4, FuseF = 3, FuseP = 2, Mix = 1
 # unique(textScale$Electrical)
 textScale$Electrical = gsub("SBrkr", 5, textScale$Electrical)
@@ -122,6 +125,7 @@ textScale$Electrical = gsub("FuseA", 4, textScale$Electrical)
 textScale$Electrical = gsub("FuseF", 3, textScale$Electrical)
 textScale$Electrical = gsub("FuseP", 2, textScale$Electrical)
 textScale$Electrical = gsub("Mix", 1, textScale$Electrical)
+textScale$Electrical = as.numeric(textScale$Electrical)
 # Functional: Typ = 8, Min1 = 7, Min2 = 6, Mod = 5, Maj1 = 4, Maj2 = 3, Sev = 2, Sal = 1
 # unique(textScale$Functional)
 textScale$Functional = gsub("Typ", 8, textScale$Functional)
@@ -132,17 +136,21 @@ textScale$Functional = gsub("Maj1", 4, textScale$Functional)
 textScale$Functional = gsub("Maj2", 3, textScale$Functional)
 textScale$Functional = gsub("Sev", 2, textScale$Functional)
 textScale$Functional = gsub("Sal", 1, textScale$Functional)
+textScale$Functional = as.numeric(textScale$Functional)
 # GarageFinish: RFn = 3, Fin = 2, Unf = 1, NA = 0
 # unique(textScale$GarageFinish)
 textScale$GarageFinish = gsub("RFn", 3, textScale$GarageFinish)
 textScale$GarageFinish = gsub("Fin", 2, textScale$GarageFinish)
 textScale$GarageFinish = gsub("Unf", 1, textScale$GarageFinish)
-textScale$GarageFinish = gsub("NA", 0, textScale$GarageFinish)
+textScale$GarageFinish = as.numeric(textScale$GarageFinish)
+textScale$GarageFinish = replace_na(textScale$GarageFinish, 0)
 # PavedDrive: Y = 3, P = 2, N = 1
 # unique(textScale$PavedDrive)
 textScale$PavedDrive = gsub("Y", 3, textScale$PavedDrive)
 textScale$PavedDrive = gsub("P", 2, textScale$PavedDrive)
 textScale$PavedDrive = gsub("N", 1, textScale$PavedDrive)
+textScale$PavedDrive = as.numeric(textScale$PavedDrive)
+
 
 
            
@@ -152,6 +160,7 @@ scaleName = c("OverallQual", "OverallCond")
 scaleCol = train %>% select(scaleName)
 scaleCol = cbind(scaleCol, textScale)
 glimpse(scaleCol)
+scaleCol = na.omit(scaleCol)
 train %>% select(-textName, -scaleName) %>% glimpse() -> train_num
 
 
