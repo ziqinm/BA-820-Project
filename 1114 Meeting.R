@@ -28,6 +28,8 @@ dim(train)
 rownames(train) = train$Id
 train = train %>% select(-Id)
 
+
+
 ### Extract text columns ###
 textName = c("MSZoning", "Street", "LotShape", "LandContour", "Utilities",
              "LotConfig", "LandSlope", "Neighborhood", "Condition1", "Condition2",
@@ -43,7 +45,7 @@ glimpse(textCol)
 
 categName = c("MSZoning", "Street", "LandContour", "LotConfig", "Neighborhood", "Condition1",
              "Condition2", "BldgType", "HouseStyle", "RoofStyle", "RoofMatl", "Exterior1st",
-             "Exterior2nd", "MasVnrType", "Foundation", "Heating", "Functional", "GarageType",
+             "Exterior2nd", "MasVnrType", "Foundation", "Heating", "GarageType",
              "SaleType", "SaleCondition", "Alley", "Fence", "MiscFeature")
 
 textChar = textCol %>% 
@@ -143,7 +145,6 @@ textScale$PavedDrive = gsub("P", 2, textScale$PavedDrive)
 textScale$PavedDrive = gsub("N", 1, textScale$PavedDrive)
 
 
-
            
 # Extraxt other numeric scale variables
 train %>% select(-textName) %>% glimpse()
@@ -155,18 +156,23 @@ train %>% select(-textName, -scaleName) %>% glimpse() -> train_num
 
 
 ### Missing Values ###
+# Missing value in <chr> column ???
+
+# Numeric variables: Replace with mean? 
+
 
 
 # Techniques:
-#   CLustering: HClust(numeric + char), KMeans(numeric)
-#   Dimentionality Reduction: PCA(train_num), EFA
+#   CLustering: HClust(train_num), KMeans(train_num)
+#   Dimentionality Reduction: PCA(train_num), EFA(scaleCol)
 #   Text analytics: `textCol`
 
-# Modeling: `traiin_num` + all scales that can be factored
+# Modeling: `train_num` + all scales that can be factored
 #   Linear Regression
 #   Ridge/Lasso
 #   Random Forest
 #   Boosting
+
 
 
 
