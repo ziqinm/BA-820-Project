@@ -166,6 +166,7 @@ train_num$LotFrontage = replace_na(train_num$LotFrontage,
                                    mean(train_num$LotFrontage, na.rm = TRUE))
 train_num$MasVnrArea = replace_na(train_num$MasVnrArea,
                                   mean(train_num$MasVnrArea, na.rm = TRUE))
+skim(train_num)
 
 
 
