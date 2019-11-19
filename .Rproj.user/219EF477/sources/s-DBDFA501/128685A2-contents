@@ -158,7 +158,15 @@ train %>% select(-textName, -scaleName) %>% glimpse() -> train_num
 ### Missing Values ###
 # Missing value in <chr> column ???
 
-# Numeric variables: Replace with mean? 
+# Numeric variables: Replace with mean
+skim(train_num)
+train_num$GarageYrBlt = replace_na(train_num$GarageYrBlt,
+                                   mean(train_num$GarageYrBlt, na.rm = TRUE))
+train_num$LotFrontage = replace_na(train_num$LotFrontage,
+                                   mean(train_num$LotFrontage, na.rm = TRUE))
+train_num$MasVnrArea = replace_na(train_num$MasVnrArea,
+                                  mean(train_num$MasVnrArea, na.rm = TRUE))
+
 
 
 
