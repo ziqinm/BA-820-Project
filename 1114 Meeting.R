@@ -166,6 +166,7 @@ train %>% select(-textName, -scaleName) %>% glimpse() -> train_num
 
 ### Missing Values ###
 # Missing value in <chr> column ???
+# Use other variables to build classifiers, then `predict` the missing text
 
 # Numeric variables: Replace with mean
 skim(train_num)
