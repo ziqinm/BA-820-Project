@@ -1,0 +1,22 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1574275780065.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "28890B8B",
+    "lastKnownWriteTime" : 1574276760,
+    "last_content_update" : 1574276760907,
+    "path" : "~/Documents/GitHub/BA-820-Project/EFA.R",
+    "project_path" : "EFA.R",
+    "properties" : {
+        "cursorPosition" : "32,59",
+        "scrollLine" : "20"
+    },
+    "relative_order" : 5,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
