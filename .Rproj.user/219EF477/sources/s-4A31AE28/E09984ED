@@ -1,0 +1,23 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1574268164972.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "E09984ED",
+    "lastKnownWriteTime" : 1574191795,
+    "last_content_update" : 1574191795,
+    "path" : "~/Documents/GitHub/BA-820-Project/HClust.R",
+    "project_path" : "HClust.R",
+    "properties" : {
+        "cursorPosition" : "21,0",
+        "scrollLine" : "21",
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

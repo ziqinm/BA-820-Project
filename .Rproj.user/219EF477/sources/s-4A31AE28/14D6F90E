@@ -1,0 +1,22 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1574268262321.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3653778168",
+    "id" : "14D6F90E",
+    "lastKnownWriteTime" : 1574268544,
+    "last_content_update" : 1574268544154,
+    "path" : "~/Documents/GitHub/BA-820-Project/Data Cleaning.R",
+    "project_path" : "Data Cleaning.R",
+    "properties" : {
+        "cursorPosition" : "187,0",
+        "scrollLine" : "176"
+    },
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
