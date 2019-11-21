@@ -22,7 +22,7 @@ corrplot(scaleCol_cor,
 scaleCol_pca = prcomp(scaleCol, center=TRUE, scale=TRUE)
 summary(scaleCol_pca)
 fviz_screeplot(scaleCol_pca, addlabels=T, ncp = 20)
-# Elbow: 6, 11, 14, 17
+# Elbow: 3, 6, 11, 14, 17
 num_f = fa.parallel(scaleCol, fm="ml", fa="fa")
 # 6 factors
 sum(num_f$fa.values >1)

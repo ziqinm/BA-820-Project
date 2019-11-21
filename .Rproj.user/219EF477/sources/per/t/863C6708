@@ -1,0 +1,22 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1574287077545.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1882162691",
+    "id" : "863C6708",
+    "lastKnownWriteTime" : 1574280152,
+    "last_content_update" : 1574280152,
+    "path" : "~/Documents/GitHub/BA-820-Project/PCA-820 Team.R",
+    "project_path" : "PCA-820 Team.R",
+    "properties" : {
+        "cursorPosition" : "24,23",
+        "scrollLine" : "17"
+    },
+    "relative_order" : 3,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

@@ -13,8 +13,10 @@ train_num = read_csv("train_num.csv")
 ####### HClust #######
 
 train_num_s = scale(train_num)
+outlier = as.numeric(c("1299", "54", "524", "636", "186"))
+train_num_c = train_num_s[-outlier, ]
 
-dist_num = dist(train_num_s)
+dist_num = dist(train_num_c)
 
 h3 = hcut(dist_num, k = 3)
 fviz_dend(h3, rect = TRUE)
