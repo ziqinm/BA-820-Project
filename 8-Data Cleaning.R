@@ -51,109 +51,109 @@ categName = c("MSZoning", "Street", "LandContour", "LotConfig", "Neighborhood", 
 typeCol = chrCol %>% 
   select(categName)
 
-scaleCol = chrCol %>% 
+scaleFct = chrCol %>% 
   select(-categName)
 
-### Convert rank categories to scales for EFA ###
-## Systematically factored:
+### Convert scale-like character variables into factors ###
 # LotShape: Reg = 4, IR1 = 3, IR2 = 2, IR1 = 1
-scaleCol$LotShape = factor(scaleCol$LotShape)
-ordered(scaleCol$LotShape, levels = c("IR1", "IR2", "IR3", "Reg"))
-# LandDlope: Gtl = 1, Mod = 2, Sev = 3
-scaleCol$LandSlope = factor(scaleCol$LandSlope)
-ordered(scaleCol$LandSlope, levels = c("Sev", "Mod", "Gtl"))
+scaleFct$LotShape = factor(scaleFct$LotShape)
+ordered(scaleFct$LotShape, levels = c("IR1", "IR2", "IR3", "Reg"))
+# LandSlope: Gtl = 1, Mod = 2, Sev = 3
+scaleFct$LandSlope = factor(scaleFct$LandSlope)
+ordered(scaleFct$LandSlope, levels = c("Gtl", "Mod", "Sev"))
+# ExterQual: Ex = 4, Gd = 3, TA = 2, Fa = 1
+scaleFct$ExterQual = factor(scaleFct$ExterQual)
+ordered(scaleFct$ExterQual, levels = c("Fa", "TA", "Gd", "Ex"))
 12312312312
-# ExterQual: Ex = 1, Gd = 3, TA = 4, Fa = 2
-scaleCol$ExterQual = factor(scaleCol$ExterQual)
-# ExterCond: TA = 5, Gd = 3, Fa = 2, Po = 4, Ex = 1
-scaleCol$ExterCond = factor(scaleCol$ExterCond)
-# BsmtQual: Ex = 1, TA = 4, Gd = 3, FA = 2, NA = 0
-scaleCol$BsmtQual = factor(scaleCol$BsmtQual)
-scaleCol$BsmtQual = replace_na(scaleCol$BsmtQual, 0)
+# ExterCond: TA = 3, Gd = 4, Fa = 2, Po = 1, Ex = 5
+scaleFct$ExterCond = factor(scaleFct$ExterCond)
+# BsmtQual: Ex = 4, TA = 2, Gd = 3, FA = 1, NA = 0
+scaleFct$BsmtQual = factor(scaleFct$BsmtQual)
+scaleFct$BsmtQual = replace_na(scaleFct$BsmtQual, 0)
 # BsmtCond: TA = 4, Gd = 2, FA = 1, Po = 3, NA = 0
-scaleCol$BsmtCond = as.numeric(factor(scaleCol$BsmtCond))
-scaleCol$BsmtCond = replace_na(scaleCol$BsmtCond, 0)
+scaleFct$BsmtCond = as.numeric(factor(scaleFct$BsmtCond))
+scaleFct$BsmtCond = replace_na(scaleFct$BsmtCond, 0)
 # BsmtExposure: No = 4, Mn = 3, Gd = 2, Av = 1, NA = 0
-scaleCol$BsmtExposure = as.numeric(factor(scaleCol$BsmtExposure))
-scaleCol$BsmtExposure = replace_na(scaleCol$BsmtExposure, 0)
+scaleFct$BsmtExposure = as.numeric(factor(scaleFct$BsmtExposure))
+scaleFct$BsmtExposure = replace_na(scaleFct$BsmtExposure, 0)
 # HeatingQC: Ex = 1, Gd = 3, TA = 5, Fa = 2, Po = 4
-scaleCol$HeatingQC = as.numeric(factor(scaleCol$HeatingQC))
+scaleFct$HeatingQC = as.numeric(factor(scaleFct$HeatingQC))
 # CentralAir: Y = 2, N = 1
-scaleCol$CentralAir = as.numeric(factor(scaleCol$CentralAir))
+scaleFct$CentralAir = as.numeric(factor(scaleFct$CentralAir))
 # KitchenQual:  Ex = 1, TA = 4, Gd = 3, FA = 2
-scaleCol$KitchenQual = as.numeric(factor(scaleCol$KitchenQual))
+scaleFct$KitchenQual = as.numeric(factor(scaleFct$KitchenQual))
 # FireplaceQu: Ex = 1, Gd = 3, TA = 5, Fa = 2, Po = 4, NA = 0
-scaleCol$FireplaceQu = as.numeric(factor(scaleCol$FireplaceQu))
-scaleCol$FireplaceQu = replace_na(scaleCol$FireplaceQu, 0)
+scaleFct$FireplaceQu = as.numeric(factor(scaleFct$FireplaceQu))
+scaleFct$FireplaceQu = replace_na(scaleFct$FireplaceQu, 0)
 # GarageQual: Ex = 1, Gd = 3, TA = 5, Fa = 2, Po = 4, NA = 0
-scaleCol$GarageQual = as.numeric(factor(scaleCol$GarageQual))
-scaleCol$GarageQual = replace_na(scaleCol$GarageQual, 0)
+scaleFct$GarageQual = as.numeric(factor(scaleFct$GarageQual))
+scaleFct$GarageQual = replace_na(scaleFct$GarageQual, 0)
 # GarageCond: Ex = 1, Gd = 3, TA = 5, Fa = 2, Po = 4, NA = 0
-scaleCol$GarageCond = as.numeric(factor(scaleCol$GarageCond))
-scaleCol$GarageCond = replace_na(scaleCol$GarageCond, 0)
+scaleFct$GarageCond = as.numeric(factor(scaleFct$GarageCond))
+scaleFct$GarageCond = replace_na(scaleFct$GarageCond, 0)
 # PoolQC: Ex = 1, Fa = 2, Gd = 3, NA = 0
-scaleCol$PoolQC = as.numeric(factor(scaleCol$PoolQC))
-scaleCol$PoolQC = replace_na(scaleCol$PoolQC, 0)
+scaleFct$PoolQC = as.numeric(factor(scaleFct$PoolQC))
+scaleFct$PoolQC = replace_na(scaleFct$PoolQC, 0)
 
 ## Manually factored:
 # Utilities: AllPub = 4, NoSewr = 3, NoSeWa = 2, ELO = 1
-# unique(scaleCol$Utilities)
-scaleCol$Utilities = gsub("AllPub", 4, scaleCol$Utilities)
-scaleCol$Utilities = gsub("NoSeWa", 2, scaleCol$Utilities)
-scaleCol$Utilities = as.numeric(scaleCol$Utilities)
+# unique(scaleFct$Utilities)
+scaleFct$Utilities = gsub("AllPub", 4, scaleFct$Utilities)
+scaleFct$Utilities = gsub("NoSeWa", 2, scaleFct$Utilities)
+scaleFct$Utilities = as.numeric(scaleFct$Utilities)
 # BsmtFinType1: GLQ = 6, ALQ = 5, BLQ = 4, Rec = 3, LwQ = 2, Unf = 1, NA = 0
-# unique(scaleCol$BsmtFinType1)
-scaleCol$BsmtFinType1 = gsub("GLQ", 6, scaleCol$BsmtFinType1)
-scaleCol$BsmtFinType1 = gsub("ALQ", 5, scaleCol$BsmtFinType1)
-scaleCol$BsmtFinType1 = gsub("BLQ", 4, scaleCol$BsmtFinType1)
-scaleCol$BsmtFinType1 = gsub("Rec", 3, scaleCol$BsmtFinType1)
-scaleCol$BsmtFinType1 = gsub("LwQ", 2, scaleCol$BsmtFinType1)
-scaleCol$BsmtFinType1 = gsub("Unf", 1, scaleCol$BsmtFinType1)
-scaleCol$BsmtFinType1 = as.numeric(scaleCol$BsmtFinType1)
-scaleCol$BsmtFinType1 = replace_na(scaleCol$BsmtFinType1, 0)
+# unique(scaleFct$BsmtFinType1)
+scaleFct$BsmtFinType1 = gsub("GLQ", 6, scaleFct$BsmtFinType1)
+scaleFct$BsmtFinType1 = gsub("ALQ", 5, scaleFct$BsmtFinType1)
+scaleFct$BsmtFinType1 = gsub("BLQ", 4, scaleFct$BsmtFinType1)
+scaleFct$BsmtFinType1 = gsub("Rec", 3, scaleFct$BsmtFinType1)
+scaleFct$BsmtFinType1 = gsub("LwQ", 2, scaleFct$BsmtFinType1)
+scaleFct$BsmtFinType1 = gsub("Unf", 1, scaleFct$BsmtFinType1)
+scaleFct$BsmtFinType1 = as.numeric(scaleFct$BsmtFinType1)
+scaleFct$BsmtFinType1 = replace_na(scaleFct$BsmtFinType1, 0)
 # BsmtFinType2: GLQ = 6, ALQ = 5, BLQ = 4, Rec = 3, LwQ = 2, Unf = 1, NA = 0
-# unique(scaleCol$BsmtFinType2)
-scaleCol$BsmtFinType2 = gsub("GLQ", 6, scaleCol$BsmtFinType2)
-scaleCol$BsmtFinType2 = gsub("ALQ", 5, scaleCol$BsmtFinType2)
-scaleCol$BsmtFinType2 = gsub("BLQ", 4, scaleCol$BsmtFinType2)
-scaleCol$BsmtFinType2 = gsub("Rec", 3, scaleCol$BsmtFinType2)
-scaleCol$BsmtFinType2 = gsub("LwQ", 2, scaleCol$BsmtFinType2)
-scaleCol$BsmtFinType2 = gsub("Unf", 1, scaleCol$BsmtFinType2)
-scaleCol$BsmtFinType2 = as.numeric(scaleCol$BsmtFinType2)
-scaleCol$BsmtFinType2 = replace_na(scaleCol$BsmtFinType2, 0)
+# unique(scaleFct$BsmtFinType2)
+scaleFct$BsmtFinType2 = gsub("GLQ", 6, scaleFct$BsmtFinType2)
+scaleFct$BsmtFinType2 = gsub("ALQ", 5, scaleFct$BsmtFinType2)
+scaleFct$BsmtFinType2 = gsub("BLQ", 4, scaleFct$BsmtFinType2)
+scaleFct$BsmtFinType2 = gsub("Rec", 3, scaleFct$BsmtFinType2)
+scaleFct$BsmtFinType2 = gsub("LwQ", 2, scaleFct$BsmtFinType2)
+scaleFct$BsmtFinType2 = gsub("Unf", 1, scaleFct$BsmtFinType2)
+scaleFct$BsmtFinType2 = as.numeric(scaleFct$BsmtFinType2)
+scaleFct$BsmtFinType2 = replace_na(scaleFct$BsmtFinType2, 0)
 # Electrical: SBrkr = 5, FuseA = 4, FuseF = 3, FuseP = 2, Mix = 1, NA = 0
-# unique(scaleCol$Electrical)
-scaleCol$Electrical = gsub("SBrkr", 5, scaleCol$Electrical)
-scaleCol$Electrical = gsub("FuseA", 4, scaleCol$Electrical)
-scaleCol$Electrical = gsub("FuseF", 3, scaleCol$Electrical)
-scaleCol$Electrical = gsub("FuseP", 2, scaleCol$Electrical)
-scaleCol$Electrical = gsub("Mix", 1, scaleCol$Electrical)
-scaleCol$Electrical = as.numeric(scaleCol$Electrical)
-scaleCol$Electrical = replace_na(scaleCol$Electrical, 0)
+# unique(scaleFct$Electrical)
+scaleFct$Electrical = gsub("SBrkr", 5, scaleFct$Electrical)
+scaleFct$Electrical = gsub("FuseA", 4, scaleFct$Electrical)
+scaleFct$Electrical = gsub("FuseF", 3, scaleFct$Electrical)
+scaleFct$Electrical = gsub("FuseP", 2, scaleFct$Electrical)
+scaleFct$Electrical = gsub("Mix", 1, scaleFct$Electrical)
+scaleFct$Electrical = as.numeric(scaleFct$Electrical)
+scaleFct$Electrical = replace_na(scaleFct$Electrical, 0)
 # Functional: Typ = 8, Min1 = 7, Min2 = 6, Mod = 5, Maj1 = 4, Maj2 = 3, Sev = 2, Sal = 1
-# unique(scaleCol$Functional)
-scaleCol$Functional = gsub("Typ", 8, scaleCol$Functional)
-scaleCol$Functional = gsub("Min1", 7, scaleCol$Functional)
-scaleCol$Functional = gsub("Min2", 6, scaleCol$Functional)
-scaleCol$Functional = gsub("Mod", 5, scaleCol$Functional)
-scaleCol$Functional = gsub("Maj1", 4, scaleCol$Functional)
-scaleCol$Functional = gsub("Maj2", 3, scaleCol$Functional)
-scaleCol$Functional = gsub("Sev", 2, scaleCol$Functional)
-scaleCol$Functional = gsub("Sal", 1, scaleCol$Functional)
-scaleCol$Functional = as.numeric(scaleCol$Functional)
+# unique(scaleFct$Functional)
+scaleFct$Functional = gsub("Typ", 8, scaleFct$Functional)
+scaleFct$Functional = gsub("Min1", 7, scaleFct$Functional)
+scaleFct$Functional = gsub("Min2", 6, scaleFct$Functional)
+scaleFct$Functional = gsub("Mod", 5, scaleFct$Functional)
+scaleFct$Functional = gsub("Maj1", 4, scaleFct$Functional)
+scaleFct$Functional = gsub("Maj2", 3, scaleFct$Functional)
+scaleFct$Functional = gsub("Sev", 2, scaleFct$Functional)
+scaleFct$Functional = gsub("Sal", 1, scaleFct$Functional)
+scaleFct$Functional = as.numeric(scaleFct$Functional)
 # GarageFinish: RFn = 3, Fin = 2, Unf = 1, NA = 0
-# unique(scaleCol$GarageFinish)
-scaleCol$GarageFinish = gsub("RFn", 3, scaleCol$GarageFinish)
-scaleCol$GarageFinish = gsub("Fin", 2, scaleCol$GarageFinish)
-scaleCol$GarageFinish = gsub("Unf", 1, scaleCol$GarageFinish)
-scaleCol$GarageFinish = as.numeric(scaleCol$GarageFinish)
-scaleCol$GarageFinish = replace_na(scaleCol$GarageFinish, 0)
+# unique(scaleFct$GarageFinish)
+scaleFct$GarageFinish = gsub("RFn", 3, scaleFct$GarageFinish)
+scaleFct$GarageFinish = gsub("Fin", 2, scaleFct$GarageFinish)
+scaleFct$GarageFinish = gsub("Unf", 1, scaleFct$GarageFinish)
+scaleFct$GarageFinish = as.numeric(scaleFct$GarageFinish)
+scaleFct$GarageFinish = replace_na(scaleFct$GarageFinish, 0)
 # PavedDrive: Y = 3, P = 2, N = 1
-# unique(scaleCol$PavedDrive)
-scaleCol$PavedDrive = gsub("Y", 3, scaleCol$PavedDrive)
-scaleCol$PavedDrive = gsub("P", 2, scaleCol$PavedDrive)
-scaleCol$PavedDrive = gsub("N", 1, scaleCol$PavedDrive)
-scaleCol$PavedDrive = as.numeric(scaleCol$PavedDrive)
+# unique(scaleFct$PavedDrive)
+scaleFct$PavedDrive = gsub("Y", 3, scaleFct$PavedDrive)
+scaleFct$PavedDrive = gsub("P", 2, scaleFct$PavedDrive)
+scaleFct$PavedDrive = gsub("N", 1, scaleFct$PavedDrive)
+scaleFct$PavedDrive = as.numeric(scaleFct$PavedDrive)
 
 
 
@@ -162,10 +162,10 @@ scaleCol$PavedDrive = as.numeric(scaleCol$PavedDrive)
 train %>% select(-chrName) %>% glimpse()
 scaleName = c("OverallQual", "OverallCond")
 scaleNum = train %>% select(scaleName)
-scaleCol = cbind(scaleCol, scaleNum)
-glimpse(scaleCol)
-skim(scaleCol)
-which(is.na(scaleCol), arr.ind=TRUE)   
+scaleFct = cbind(scaleFct, scaleNum)
+glimpse(scaleFct)
+skim(scaleFct)
+which(is.na(scaleFct), arr.ind=TRUE)   
 # row 1380 has NA, decided to add NA as a category
 train %>% select(-chrName, -scaleName) %>% glimpse() -> train_num
 
@@ -210,19 +210,19 @@ train_num = train_num %>%
 
 
 ncol(train_num)
-ncol(scaleCol)
+ncol(scaleFct)
 ncol(typeCol)
 
-write_csv(train_num, "train_num.csv")
-write_csv(scaleCol, "scaleCol.csv")
-write_csv(typeCol, "typeCol.csv")
+write_csv(train_num, "train_dbl.csv")   # <dbl>
+write_csv(scaleFct, "scale_fct.csv")     # <fct>
+write_csv(typeCol, "type_chr.csv")       # <chr>
 
 
 
 
 ## Pattern Discovery
-# KMmans: `train_num`
-# EFA: `scaleCol`
+# PAM: use all variables to cluster
+# EFA: `scaleFct`, then convert to numeric
 
 ## Dimention Reduction
 # PCA: `train_num`

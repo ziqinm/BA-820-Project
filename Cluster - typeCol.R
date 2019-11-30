@@ -4,6 +4,7 @@ library(tidyverse)
 library(cluster)
 library(factoextra)
 
+
 type = read_csv("typeCol.csv")
 glimpse(type)
 summary(type)
@@ -15,13 +16,11 @@ num = as.data.frame(num)
 scale = read_csv("scaleCol.csv")
 scale = as.data.frame(scale)
 
-type8 = type
 # factor type variables, not ordered
+type8 = type %>% mutate_if(is.character, as.factor)
 
 scale8 = scale
-for (i in 1:ncol(scale)) {
-  scale8[i] = as.factor(scale[i])
-}
+
 
 new_train = cbind(type8, scale8, num)
 dim(new_train)
