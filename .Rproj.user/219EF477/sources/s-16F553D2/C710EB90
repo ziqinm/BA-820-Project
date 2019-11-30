@@ -5,15 +5,15 @@
     "dirty" : false,
     "encoding" : "UTF-8",
     "folds" : "",
-    "hash" : "0",
+    "hash" : "1495395917",
     "id" : "C710EB90",
-    "lastKnownWriteTime" : 1574268544,
-    "last_content_update" : 1574268544,
+    "lastKnownWriteTime" : 1575082960,
+    "last_content_update" : 1575082960905,
     "path" : "~/Documents/GitHub/BA-820-Project/Data Cleaning.R",
     "project_path" : "Data Cleaning.R",
     "properties" : {
-        "cursorPosition" : "18,0",
-        "scrollLine" : "10"
+        "cursorPosition" : "220,0",
+        "scrollLine" : "202"
     },
     "relative_order" : 2,
     "source_on_save" : false,
