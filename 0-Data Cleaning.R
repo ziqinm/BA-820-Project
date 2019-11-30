@@ -57,103 +57,88 @@ scaleFct = chrCol %>%
 ### Convert scale-like character variables into factors ###
 # LotShape: Reg = 4, IR1 = 3, IR2 = 2, IR1 = 1
 scaleFct$LotShape = factor(scaleFct$LotShape)
+fct_explicit_na(scaleFct$LotShape, "NA")
 ordered(scaleFct$LotShape, levels = c("IR1", "IR2", "IR3", "Reg"))
 # LandSlope: Gtl = 1, Mod = 2, Sev = 3
 scaleFct$LandSlope = factor(scaleFct$LandSlope)
+fct_explicit_na(scaleFct$LandSlope, "NA")
 ordered(scaleFct$LandSlope, levels = c("Gtl", "Mod", "Sev"))
-# ExterQual: Ex = 4, Gd = 3, TA = 2, Fa = 1
+# ExterQual: Ex = 5, Gd = 4, TA = 3, Fa = 2, Po = 1
 scaleFct$ExterQual = factor(scaleFct$ExterQual)
-ordered(scaleFct$ExterQual, levels = c("Fa", "TA", "Gd", "Ex"))
-12312312312
+fct_explicit_na(scaleFct$ExterQual, "NA")
+ordered(scaleFct$ExterQual, levels = c("Po", "Fa", "TA", "Gd", "Ex"))
 # ExterCond: TA = 3, Gd = 4, Fa = 2, Po = 1, Ex = 5
 scaleFct$ExterCond = factor(scaleFct$ExterCond)
-# BsmtQual: Ex = 4, TA = 2, Gd = 3, FA = 1, NA = 0
+fct_explicit_na(scaleFct$ExterCond, "NA")
+ordered(scaleFct$ExterCond, levels = c("Po", "Fa", "TA", "Gd", "Ex"))
+# BsmtQual: Ex = 5, TA = 3, Gd = 4, FA = 2, Po = 1, NA = 0
 scaleFct$BsmtQual = factor(scaleFct$BsmtQual)
-scaleFct$BsmtQual = replace_na(scaleFct$BsmtQual, 0)
-# BsmtCond: TA = 4, Gd = 2, FA = 1, Po = 3, NA = 0
-scaleFct$BsmtCond = as.numeric(factor(scaleFct$BsmtCond))
-scaleFct$BsmtCond = replace_na(scaleFct$BsmtCond, 0)
-# BsmtExposure: No = 4, Mn = 3, Gd = 2, Av = 1, NA = 0
-scaleFct$BsmtExposure = as.numeric(factor(scaleFct$BsmtExposure))
-scaleFct$BsmtExposure = replace_na(scaleFct$BsmtExposure, 0)
-# HeatingQC: Ex = 1, Gd = 3, TA = 5, Fa = 2, Po = 4
-scaleFct$HeatingQC = as.numeric(factor(scaleFct$HeatingQC))
+fct_explicit_na(scaleFct$BsmtQual, "NA")
+ordered(scaleFct$BsmtQual, levels = c("NA", "Po", "Fa", "TA", "Gd", "Ex"))
+# BsmtCond: Ex = 5, TA = 3, Gd = 4, FA = 2, Po = 1, NA = 0
+scaleFct$BsmtCond = factor(scaleFct$BsmtCond)
+fct_explicit_na(scaleFct$BsmtCond, "NA")
+ordered(scaleFct$BsmtCond, levels = c("NA", "Po", "Fa", "TA", "Gd", "Ex"))
+# BsmtExposure: No = 1, Mn = 2, Gd = 4, Av = 3, NA = 0
+scaleFct$BsmtExposure = factor(scaleFct$BsmtExposure)
+fct_explicit_na(scaleFct$BsmtExposure, "NA")
+ordered(scaleFct$BsmtExposure, levels = c("NA", "No", "Mn", "Av", "Gd"))
+# HeatingQC: TA = 3, Gd = 4, Fa = 2, Po = 1, Ex = 5
+scaleFct$HeatingQC = factor(scaleFct$HeatingQC)
+fct_explicit_na(scaleFct$HeatingQC, "NA")
+ordered(scaleFct$HeatingQC, levels = c("Po", "Fa", "TA", "Gd", "Ex"))
 # CentralAir: Y = 2, N = 1
-scaleFct$CentralAir = as.numeric(factor(scaleFct$CentralAir))
-# KitchenQual:  Ex = 1, TA = 4, Gd = 3, FA = 2
-scaleFct$KitchenQual = as.numeric(factor(scaleFct$KitchenQual))
-# FireplaceQu: Ex = 1, Gd = 3, TA = 5, Fa = 2, Po = 4, NA = 0
-scaleFct$FireplaceQu = as.numeric(factor(scaleFct$FireplaceQu))
-scaleFct$FireplaceQu = replace_na(scaleFct$FireplaceQu, 0)
-# GarageQual: Ex = 1, Gd = 3, TA = 5, Fa = 2, Po = 4, NA = 0
-scaleFct$GarageQual = as.numeric(factor(scaleFct$GarageQual))
-scaleFct$GarageQual = replace_na(scaleFct$GarageQual, 0)
-# GarageCond: Ex = 1, Gd = 3, TA = 5, Fa = 2, Po = 4, NA = 0
-scaleFct$GarageCond = as.numeric(factor(scaleFct$GarageCond))
-scaleFct$GarageCond = replace_na(scaleFct$GarageCond, 0)
-# PoolQC: Ex = 1, Fa = 2, Gd = 3, NA = 0
-scaleFct$PoolQC = as.numeric(factor(scaleFct$PoolQC))
-scaleFct$PoolQC = replace_na(scaleFct$PoolQC, 0)
-
-## Manually factored:
+scaleFct$CentralAir = factor(scaleFct$CentralAir)
+fct_explicit_na(scaleFct$CentralAir, "NA")
+ordered(scaleFct$CentralAir, levels = c("N", "Y"))
+# KitchenQual:   Ex = 5, Gd = 4, TA = 3, Fa = 2, Po = 1
+scaleFct$KitchenQual = factor(scaleFct$KitchenQual)
+fct_explicit_na(scaleFct$KitchenQual, "NA")
+ordered(scaleFct$KitchenQual, levels = c("Po", "Fa", "Ta", "Gd", "Ex"))
+# FireplaceQu: Ex = 5, Gd = 4, TA = 3, Fa = 2, Po = 1, NA = 0
+scaleFct$FireplaceQu = factor(scaleFct$FireplaceQu)
+fct_explicit_na(scaleFct$FireplaceQu, "NA")
+ordered(scaleFct$FireplaceQu, levels = c("NA", "Po", "Fa", "Ta", "Gd", "Ex"))
+# GarageQual: Ex = 5, Gd = 4, TA = 3, Fa = 2, Po = 1, NA = 0
+scaleFct$GarageQual = factor(scaleFct$GarageQual)
+fct_explicit_na(scaleFct$GarageQual, "NA")
+ordered(scaleFct$GarageQual, levels = c("NA", "Po", "Fa", "Ta", "Gd", "Ex"))
+# GarageCond: Ex = 5, Gd = 4, TA = 3, Fa = 2, Po = 1, NA = 0
+scaleFct$GarageCond = factor(scaleFct$GarageCond)
+fct_explicit_na(scaleFct$GarageCond, "NA")
+ordered(scaleFct$GarageCond, levels = c("NA", "Po", "Fa", "Ta", "Gd", "Ex"))
+# PoolQC: Ex = 4, Fa = 1, Gd = 3, NA = 0, TA = 2
+scaleFct$PoolQC = factor(scaleFct$PoolQC)
+fct_explicit_na(scaleFct$PoolQC, "NA")
+ordered(scaleFct$PoolQC, levels = c("NA", "Fa", "TA","Gd", "Ex"))
 # Utilities: AllPub = 4, NoSewr = 3, NoSeWa = 2, ELO = 1
-# unique(scaleFct$Utilities)
-scaleFct$Utilities = gsub("AllPub", 4, scaleFct$Utilities)
-scaleFct$Utilities = gsub("NoSeWa", 2, scaleFct$Utilities)
-scaleFct$Utilities = as.numeric(scaleFct$Utilities)
+scaleFct$Utilities = factor(scaleFct$Utilities)
+fct_explicit_na(scaleFct$Utilities, "NA")
+ordered(scaleFct$Utilities, levels = c("ELO", "NoSeWa", "NoSewr", "AllPub"))
 # BsmtFinType1: GLQ = 6, ALQ = 5, BLQ = 4, Rec = 3, LwQ = 2, Unf = 1, NA = 0
-# unique(scaleFct$BsmtFinType1)
-scaleFct$BsmtFinType1 = gsub("GLQ", 6, scaleFct$BsmtFinType1)
-scaleFct$BsmtFinType1 = gsub("ALQ", 5, scaleFct$BsmtFinType1)
-scaleFct$BsmtFinType1 = gsub("BLQ", 4, scaleFct$BsmtFinType1)
-scaleFct$BsmtFinType1 = gsub("Rec", 3, scaleFct$BsmtFinType1)
-scaleFct$BsmtFinType1 = gsub("LwQ", 2, scaleFct$BsmtFinType1)
-scaleFct$BsmtFinType1 = gsub("Unf", 1, scaleFct$BsmtFinType1)
-scaleFct$BsmtFinType1 = as.numeric(scaleFct$BsmtFinType1)
-scaleFct$BsmtFinType1 = replace_na(scaleFct$BsmtFinType1, 0)
+scaleFct$BsmtFinType1 = factor(scaleFct$BsmtFinType1)
+fct_explicit_na(scaleFct$BsmtFinType1, "NA")
+ordered(scaleFct$BsmtFinType1, levels = c("NA", "Unf", "LwQ", "Rec", "BLQ", "ALQ", "GLQ"))
 # BsmtFinType2: GLQ = 6, ALQ = 5, BLQ = 4, Rec = 3, LwQ = 2, Unf = 1, NA = 0
-# unique(scaleFct$BsmtFinType2)
-scaleFct$BsmtFinType2 = gsub("GLQ", 6, scaleFct$BsmtFinType2)
-scaleFct$BsmtFinType2 = gsub("ALQ", 5, scaleFct$BsmtFinType2)
-scaleFct$BsmtFinType2 = gsub("BLQ", 4, scaleFct$BsmtFinType2)
-scaleFct$BsmtFinType2 = gsub("Rec", 3, scaleFct$BsmtFinType2)
-scaleFct$BsmtFinType2 = gsub("LwQ", 2, scaleFct$BsmtFinType2)
-scaleFct$BsmtFinType2 = gsub("Unf", 1, scaleFct$BsmtFinType2)
-scaleFct$BsmtFinType2 = as.numeric(scaleFct$BsmtFinType2)
-scaleFct$BsmtFinType2 = replace_na(scaleFct$BsmtFinType2, 0)
+scaleFct$BsmtFinType2 = factor(scaleFct$BsmtFinType2)
+fct_explicit_na(scaleFct$BsmtFinType2, "NA")
+ordered(scaleFct$BsmtFinType2, levels = c("NA", "Unf", "LwQ", "Rec", "BLQ", "ALQ", "GLQ"))
 # Electrical: SBrkr = 5, FuseA = 4, FuseF = 3, FuseP = 2, Mix = 1, NA = 0
-# unique(scaleFct$Electrical)
-scaleFct$Electrical = gsub("SBrkr", 5, scaleFct$Electrical)
-scaleFct$Electrical = gsub("FuseA", 4, scaleFct$Electrical)
-scaleFct$Electrical = gsub("FuseF", 3, scaleFct$Electrical)
-scaleFct$Electrical = gsub("FuseP", 2, scaleFct$Electrical)
-scaleFct$Electrical = gsub("Mix", 1, scaleFct$Electrical)
-scaleFct$Electrical = as.numeric(scaleFct$Electrical)
-scaleFct$Electrical = replace_na(scaleFct$Electrical, 0)
+scaleFct$Electrical = factor(scaleFct$Electrical)
+fct_explicit_na(scaleFct$Electrical, "NA")
+ordered(scaleFct$Electrical, levels = c("NA", "Mix", "FuseP", "FuseF", "FuseA", "SBrkr"))
 # Functional: Typ = 8, Min1 = 7, Min2 = 6, Mod = 5, Maj1 = 4, Maj2 = 3, Sev = 2, Sal = 1
-# unique(scaleFct$Functional)
-scaleFct$Functional = gsub("Typ", 8, scaleFct$Functional)
-scaleFct$Functional = gsub("Min1", 7, scaleFct$Functional)
-scaleFct$Functional = gsub("Min2", 6, scaleFct$Functional)
-scaleFct$Functional = gsub("Mod", 5, scaleFct$Functional)
-scaleFct$Functional = gsub("Maj1", 4, scaleFct$Functional)
-scaleFct$Functional = gsub("Maj2", 3, scaleFct$Functional)
-scaleFct$Functional = gsub("Sev", 2, scaleFct$Functional)
-scaleFct$Functional = gsub("Sal", 1, scaleFct$Functional)
-scaleFct$Functional = as.numeric(scaleFct$Functional)
+scaleFct$Functional = factor(scaleFct$Functional)
+fct_explicit_na(scaleFct$Functional, "NA")
+ordered(scaleFct$Functional, levels = c("Sal", "Sev", "Maj2", "Maj1", "Mod", "Min2", "Min1", "Typ"))
 # GarageFinish: RFn = 3, Fin = 2, Unf = 1, NA = 0
-# unique(scaleFct$GarageFinish)
-scaleFct$GarageFinish = gsub("RFn", 3, scaleFct$GarageFinish)
-scaleFct$GarageFinish = gsub("Fin", 2, scaleFct$GarageFinish)
-scaleFct$GarageFinish = gsub("Unf", 1, scaleFct$GarageFinish)
-scaleFct$GarageFinish = as.numeric(scaleFct$GarageFinish)
-scaleFct$GarageFinish = replace_na(scaleFct$GarageFinish, 0)
+scaleFct$GarageFinish = factor(scaleFct$GarageFinish)
+fct_explicit_na(scaleFct$GarageFinish, "NA")
+ordered(scaleFct$GarageFinish, levels = c("NA", "Unf", "Fin", "RFn"))
 # PavedDrive: Y = 3, P = 2, N = 1
-# unique(scaleFct$PavedDrive)
-scaleFct$PavedDrive = gsub("Y", 3, scaleFct$PavedDrive)
-scaleFct$PavedDrive = gsub("P", 2, scaleFct$PavedDrive)
-scaleFct$PavedDrive = gsub("N", 1, scaleFct$PavedDrive)
-scaleFct$PavedDrive = as.numeric(scaleFct$PavedDrive)
+scaleFct$PavedDrive = factor(scaleFct$PavedDrive)
+fct_explicit_na(scaleFct$PavedDrive, "NA")
+ordered(scaleFct$PavedDrive, levels = c("NA", "N", "P", "Y", "Mod"))
 
 
 
@@ -162,6 +147,15 @@ scaleFct$PavedDrive = as.numeric(scaleFct$PavedDrive)
 train %>% select(-chrName) %>% glimpse()
 scaleName = c("OverallQual", "OverallCond")
 scaleNum = train %>% select(scaleName)
+scaleNum$OverallQual = factor(scaleNum$OverallQual)
+fct_explicit_na(scaleNum$OverallQual, "0")
+ordered(scaleNum$OverallQual, levels = c("0", "1", "2", "3", "4", "5",
+                                         "6", "7", "8", "9", "10"))
+scaleNum$OverallCond = factor(scaleNum$OverallCond)
+fct_explicit_na(scaleNum$OverallCond, "0")
+ordered(scaleNum$OverallCond, levels = c("0", "1", "2", "3", "4", "5",
+                                         "6", "7", "8", "9", "10"))
+
 scaleFct = cbind(scaleFct, scaleNum)
 glimpse(scaleFct)
 skim(scaleFct)
@@ -216,7 +210,6 @@ ncol(typeCol)
 write_csv(train_num, "train_dbl.csv")   # <dbl>
 write_csv(scaleFct, "scale_fct.csv")     # <fct>
 write_csv(typeCol, "type_chr.csv")       # <chr>
-
 
 
 
