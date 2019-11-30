@@ -206,7 +206,6 @@ train_num = train_num %>%
   select(-YearBuilt, -GarageYrBlt)
 
 
-
 ncol(train_num)
 ncol(scaleCol)
 ncol(typeCol)
@@ -218,14 +217,16 @@ write_csv(typeCol, "typeCol.csv")
 
 
 
-# Techniques:
-#   CLustering: HClust(train_num), KMeans(train_num)
-#   Dimentionality Reduction: PCA(train_num), EFA(scaleCol)
-#   Text analytics: `textCol`
+## Pattern Discovery
+# KMmans: `train_num`
+# EFA: `scaleCol`
+
+## Dimention Reduction
+# PCA: `train_num`
+# 
+
 
 # Modeling: `train_num` + all scales that can be factored
-#   Linear Regression
-#   Ridge/Lasso
 #   Random Forest
 #   Boosting
 

@@ -1,0 +1,22 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1575099037449.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "3BAB7BC",
+    "lastKnownWriteTime" : 1574288724,
+    "last_content_update" : 1574288724,
+    "path" : "~/Documents/GitHub/BA-820-Project/DANTING - KMEANS.R",
+    "project_path" : "DANTING - KMEANS.R",
+    "properties" : {
+        "cursorPosition" : "37,37",
+        "scrollLine" : "31"
+    },
+    "relative_order" : 4,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

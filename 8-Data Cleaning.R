@@ -57,15 +57,18 @@ scaleCol = chrCol %>%
 ### Convert rank categories to scales for EFA ###
 ## Systematically factored:
 # LotShape: Reg = 4, IR1 = 3, IR2 = 2, IR1 = 1
-scaleCol$LotShape = as.numeric(factor(scaleCol$LotShape))
+scaleCol$LotShape = factor(scaleCol$LotShape)
+ordered(scaleCol$LotShape, levels = c("IR1", "IR2", "IR3", "Reg"))
 # LandDlope: Gtl = 1, Mod = 2, Sev = 3
-scaleCol$LandSlope = as.numeric(factor(scaleCol$LandSlope))
+scaleCol$LandSlope = factor(scaleCol$LandSlope)
+ordered(scaleCol$LandSlope, levels = c("Sev", "Mod", "Gtl"))
+12312312312
 # ExterQual: Ex = 1, Gd = 3, TA = 4, Fa = 2
-scaleCol$ExterQual = as.numeric(factor(scaleCol$ExterQual))
+scaleCol$ExterQual = factor(scaleCol$ExterQual)
 # ExterCond: TA = 5, Gd = 3, Fa = 2, Po = 4, Ex = 1
-scaleCol$ExterCond = as.numeric(factor(scaleCol$ExterCond))
+scaleCol$ExterCond = factor(scaleCol$ExterCond)
 # BsmtQual: Ex = 1, TA = 4, Gd = 3, FA = 2, NA = 0
-scaleCol$BsmtQual = as.numeric(factor(scaleCol$BsmtQual))
+scaleCol$BsmtQual = factor(scaleCol$BsmtQual)
 scaleCol$BsmtQual = replace_na(scaleCol$BsmtQual, 0)
 # BsmtCond: TA = 4, Gd = 2, FA = 1, Po = 3, NA = 0
 scaleCol$BsmtCond = as.numeric(factor(scaleCol$BsmtCond))
