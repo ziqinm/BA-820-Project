@@ -7,13 +7,13 @@
     "folds" : "",
     "hash" : "0",
     "id" : "FFA6A855",
-    "lastKnownWriteTime" : 1575162500,
-    "last_content_update" : 1575162500975,
+    "lastKnownWriteTime" : 1575176104,
+    "last_content_update" : 1575176104826,
     "path" : "~/Documents/GitHub/BA-820-Project/Final Script/0-Data Cleaning.R",
     "project_path" : "Final Script/0-Data Cleaning.R",
     "properties" : {
-        "cursorPosition" : "232,0",
-        "scrollLine" : "215"
+        "cursorPosition" : "25,0",
+        "scrollLine" : "9"
     },
     "relative_order" : 1,
     "source_on_save" : false,

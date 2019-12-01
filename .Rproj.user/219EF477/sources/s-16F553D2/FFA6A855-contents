@@ -224,19 +224,19 @@ ncol(train_num)
 ncol(scaleFct)
 ncol(typeCol)
 
-write_csv(train_num, "train_dbl.csv")    # <dbl>
-write_csv(scaleFct, "scale_fct.csv")     # <fct>
-write_csv(typeCol, "type_chr.csv")       # <chr>
+write_csv(train_num, "Subsets/train_dbl.csv")    # <dbl>
+write_csv(scaleFct, "Subsets/scale_fct.csv")     # <fct>
+write_csv(typeCol, "Subsets/type_chr.csv")       # <chr>
 
 
 
 ## Pattern Discovery
-# Kmeans
-# EFA: `scaleFct`, then convert to numeric
+# EFA: uncover patterns in scale features
+# Kmeans: detect outliers
 
 ## Dimention Reduction
 # PCA: `train_num`
-# PAM: use all variables to cluster
+# PAM: use all variables to cluster, assggn clusers to non-numeric variables
 
 
 

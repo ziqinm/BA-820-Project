@@ -1,0 +1,22 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1575179741292.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "4126367043",
+    "id" : "E6F51BB7",
+    "lastKnownWriteTime" : 1575181359,
+    "last_content_update" : 1575181359248,
+    "path" : "~/Documents/GitHub/BA-820-Project/Final Script/Cluster - typeCol.R",
+    "project_path" : "Final Script/Cluster - typeCol.R",
+    "properties" : {
+        "cursorPosition" : "23,0",
+        "scrollLine" : "10"
+    },
+    "relative_order" : 4,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

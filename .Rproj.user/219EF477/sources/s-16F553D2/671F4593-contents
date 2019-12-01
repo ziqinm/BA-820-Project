@@ -175,4 +175,4 @@ print(fa6_c, cut=.3)
 # TFI = 0.991, RMSR = 0.01, RMSEA = 0.024, all Excellent
 fa.diagram(fa6_c)
 
-# Interpret?
+# Interprete?
