@@ -9,12 +9,12 @@ options(stringsAsFactors = FALSE)
 library(tidyverse)
 library(skimr)
 
-train_orig = read_csv("train.csv")
+train_orig = read_csv("Original Data/train.csv")
 summary(train_orig)
 glimpse(train_orig)
 skim(train_orig)
 
-test_orig = read_csv("test.csv")
+test_orig = read_csv("Original Data/test.csv")
 
 # ----------------------------- #
 
@@ -39,14 +39,14 @@ chrName = c("MSZoning", "Street", "LotShape", "LandContour", "Utilities",
              "Heating", "HeatingQC", "CentralAir", "Electrical", "KitchenQual",
              "Functional", "FireplaceQu", "GarageType", "GarageFinish", "GarageQual",
              "GarageCond", "PavedDrive", "PoolQC", "Fence", "MiscFeature",
-             "SaleType", "SaleCondition", "Alley")
+             "SaleType", "SaleCondition", "Alley", "MoSold")
 chrCol = train %>% select(chrName)
 glimpse(chrCol)
 
 categName = c("MSZoning", "Street", "LandContour", "LotConfig", "Neighborhood", "Condition1",
              "Condition2", "BldgType", "HouseStyle", "RoofStyle", "RoofMatl", "Exterior1st",
              "Exterior2nd", "MasVnrType", "Foundation", "Heating", "GarageType",
-             "SaleType", "SaleCondition", "Alley", "Fence", "MiscFeature")
+             "SaleType", "SaleCondition", "Alley", "Fence", "MiscFeature", "MoSold")
 
 typeCol = chrCol %>% 
   select(categName)
@@ -156,10 +156,11 @@ fct_explicit_na(scaleNum$OverallCond, "0")
 ordered(scaleNum$OverallCond, levels = c("0", "1", "2", "3", "4", "5",
                                          "6", "7", "8", "9", "10"))
 
+
 scaleFct = cbind(scaleFct, scaleNum)
 glimpse(scaleFct)
 skim(scaleFct)
-which(is.na(scaleFct), arr.ind=TRUE)   
+# which(is.na(scaleFct), arr.ind=TRUE)   
 # row 1380 has NA, decided to add NA as a category
 train %>% select(-chrName, -scaleName) %>% glimpse() -> train_num
 
@@ -172,6 +173,22 @@ typeCol$Fence = replace_na(typeCol$Fence, "N/A")
 typeCol$GarageType = replace_na(typeCol$GarageType, "N/A")
 typeCol$MasVnrType = replace_na(typeCol$MasVnrType, "N/A")
 typeCol$MiscFeature = replace_na(typeCol$MiscFeature, "N/A")
+# Convert months to quarters
+quart = function(x) {
+  if (x %in% c(1, 2, 3)) {
+    Quarter = "I"
+  } else if (x %in% c(4, 5, 6)){
+    Quarter = "II"
+  } else if (x %in% c(7, 8, 9)) {
+    Quarter = "III"
+  } else {
+    Quarter = "IV"
+  }
+  return(Quarter)
+}
+typeCol$Quarter = map_chr(typeCol$MoSold, quart)
+typeCol$Quarter
+typeCol = typeCol %>% select(-MoSold)
 skim(typeCol)
 
 
@@ -185,41 +202,42 @@ train_num$MasVnrArea = replace_na(train_num$MasVnrArea,
 train_num$GarageYrBlt = replace_na(train_num$GarageYrBlt,
                                   mean(train_num$GarageYrBlt, na.rm = TRUE))
 # Parse years to ages
-# Years of Garage
-for(i in 1:nrow(train_num)) {
-  GarYearNum = max(train_num$GarageYrBlt) - train_num$GarageYrBlt
-  return(GarYearNum)
-}
-train_num$GarageAge = GarYearNum
-# Years of House
-for(i in 1:nrow(train_num)) {
-  YearNum = max(train_num$YearBuilt) - train_num$YearBuilt
-  return(YearNum)
-}
-train_num$Age = YearNum
+# Age of Garage when sold
+train_num = train_num %>% 
+  mutate(GarageAge = train_num$YrSold - train_num$GarageYrBlt)
+
+# Age of House when sold
+train_num = train_num %>% 
+  mutate(Age = train_num$YrSold - train_num$YearBuilt)
+
+# Age of house after reconstruction (if applicable)
+train_num = train_num %>% 
+  mutate(RemodAge = train_num$YrSold - train_num$YearRemodAdd)
+  
 summary(train_num)
 # remove the year column
 train_num = train_num %>% 
-  select(-YearBuilt, -GarageYrBlt)
+  select(-YearBuilt, -GarageYrBlt, -YearRemodAdd)
 
 
 ncol(train_num)
 ncol(scaleFct)
 ncol(typeCol)
 
-write_csv(train_num, "train_dbl.csv")   # <dbl>
+write_csv(train_num, "train_dbl.csv")    # <dbl>
 write_csv(scaleFct, "scale_fct.csv")     # <fct>
 write_csv(typeCol, "type_chr.csv")       # <chr>
 
 
 
 ## Pattern Discovery
-# PAM: use all variables to cluster
+# Kmeans
 # EFA: `scaleFct`, then convert to numeric
 
 ## Dimention Reduction
 # PCA: `train_num`
-# 
+# PAM: use all variables to cluster
+
 
 
 # Modeling: `train_num` + all scales that can be factored

@@ -1,0 +1,22 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1575145683303.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "FFA6A855",
+    "lastKnownWriteTime" : 1575162500,
+    "last_content_update" : 1575162500975,
+    "path" : "~/Documents/GitHub/BA-820-Project/Final Script/0-Data Cleaning.R",
+    "project_path" : "Final Script/0-Data Cleaning.R",
+    "properties" : {
+        "cursorPosition" : "232,0",
+        "scrollLine" : "215"
+    },
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
