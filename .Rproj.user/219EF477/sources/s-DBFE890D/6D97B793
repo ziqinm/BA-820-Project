@@ -1,0 +1,22 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1575183884581.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "6D97B793",
+    "lastKnownWriteTime" : 1575184140,
+    "last_content_update" : 1575184140054,
+    "path" : "~/Documents/GitHub/BA-820-Project/Final Script/3-PCA.R",
+    "project_path" : "Final Script/3-PCA.R",
+    "properties" : {
+        "cursorPosition" : "77,25",
+        "scrollLine" : "62"
+    },
+    "relative_order" : 4,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
