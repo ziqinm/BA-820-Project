@@ -1,8 +1,8 @@
 {
-    "path" : "~/Documents/GitHub/BA-820-Project",
+    "path" : "~/Documents/GitHub/BA-820-Project/Final Script",
     "sortOrder" : [
         {
-            "ascending" : true,
+            "ascending" : false,
             "columnIndex" : 2
         }
     ]
