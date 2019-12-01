@@ -6,19 +6,19 @@ library(factoextra)
 library(fpc)
 
 
-type = read_csv("Subsets/type_chr.csv")
+type = read.csv("Subsets/type_chr.csv")
 outlier = as.numeric(c("1299", "54", "524", "636", "186"))
 type = type[-outlier, ]
 glimpse(type)
 summary(type)
-type = as.data.frame(type)
+# type = as.data.frame(type)
 
-num = read_csv("Subsets/train_n.csv")
-num = as.data.frame(num)
+num = read.csv("Subsets/train_n.csv")
+# num = as.data.frame(num)
 
-scale = read_csv("Subsets/scale_fct.csv")
-scale = scale[-outlier, ]
-scale = as.data.frame(scale)
+# scale = read_csv("Subsets/scale_fct.csv")
+# scale = scale[-outlier, ]
+# scale = as.data.frame(scale)
 
 # factor type variables, not ordered
 typeFct = type %>% mutate_if(is.character, as.factor)
@@ -28,6 +28,7 @@ scale8 = scaleFct[-outlier, ]
 
 new_train = cbind(typeFct, scale8, num)
 dim(new_train)
+glimpse(new_train)
 
 ##### PAM algorithm #####
 
@@ -58,8 +59,13 @@ clus = pam2$clustering
 length(clus)
 all.equal(names(clus), rownames(new_train))
 
+train_pca = read.csv("Model/train_pca.csv")
+de = train_orig[-outlier, ]
+price = de$SalePrice
 
-
+train_df = cbind(train_pca, clus, price)
+dim(train_df)
+write_csv(train_df, "Model/train_df.csv")
 
 # new = cbind(new_train, clus)
 # glimpse(new)

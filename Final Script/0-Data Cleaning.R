@@ -14,8 +14,6 @@ summary(train_orig)
 glimpse(train_orig)
 skim(train_orig)
 
-test_orig = read_csv("Original Data/test.csv")
-
 # ----------------------------- #
 
 ##### Data Cleaning #####
@@ -168,11 +166,7 @@ train %>% select(-chrName, -scaleName) %>% glimpse() -> train_num
 ### Missing Values ###
 skim(typeCol)
 # Replace NAs with "N/A" as a new type
-typeCol$Alley = replace_na(typeCol$Alley, "N/A")
-typeCol$Fence = replace_na(typeCol$Fence, "N/A")
-typeCol$GarageType = replace_na(typeCol$GarageType, "N/A")
-typeCol$MasVnrType = replace_na(typeCol$MasVnrType, "N/A")
-typeCol$MiscFeature = replace_na(typeCol$MiscFeature, "N/A")
+typeCol[is.na(typeCol)] = "N/A"
 # Convert months to quarters
 quart = function(x) {
   if (x %in% c(1, 2, 3)) {
@@ -235,8 +229,8 @@ write_csv(typeCol, "Subsets/type_chr.csv")       # <chr>
 # Kmeans: detect outliers
 
 ## Dimention Reduction
-# PCA: `train_num`
-# PAM: use all variables to cluster, assggn clusers to non-numeric variables
+# PCA: reduce numeric variable dimensions
+# PAM: assign clusers to non-numeric variables
 
 
 
