@@ -7,13 +7,13 @@
     "folds" : "",
     "hash" : "0",
     "id" : "50E8A01A",
-    "lastKnownWriteTime" : 1575185084,
-    "last_content_update" : 1575185084606,
+    "lastKnownWriteTime" : 1575185540,
+    "last_content_update" : 1575185540838,
     "path" : "~/Documents/GitHub/BA-820-Project/Final Script/Cluster - typeCol.R",
     "project_path" : "Final Script/Cluster - typeCol.R",
     "properties" : {
-        "cursorPosition" : "63,0",
-        "scrollLine" : "48"
+        "cursorPosition" : "47,11",
+        "scrollLine" : "36"
     },
     "relative_order" : 2,
     "source_on_save" : false,

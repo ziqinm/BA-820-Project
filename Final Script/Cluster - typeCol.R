@@ -45,6 +45,7 @@ lines(1:8, sil_width)
 # k = 2 has the highest silhouette width
 
 pam2 = pam(diss_dist, 2)
+pam2$id.med
 plot(silhouette(pam2$clustering, diss_dist), col = 1:2, border = NA)
 # Avg: 0.2
 
@@ -57,12 +58,9 @@ clus = pam2$clustering
 length(clus)
 all.equal(names(clus), rownames(new_train))
 
-fviz_cluster(pam2, geom = "point", ellipse.type = "norm")
 
 
 
 # new = cbind(new_train, clus)
 # glimpse(new)
 # unique(new$clus)
-
-pam2$id.med
