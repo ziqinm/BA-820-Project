@@ -1,0 +1,22 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1575228910187.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "B86CF7D6",
+    "lastKnownWriteTime" : 1575184023,
+    "last_content_update" : 1575184023,
+    "path" : "~/Documents/GitHub/BA-820-Project/Final Script/2-KMeans.R",
+    "project_path" : "Final Script/2-KMeans.R",
+    "properties" : {
+        "cursorPosition" : "65,0",
+        "scrollLine" : "0"
+    },
+    "relative_order" : 5,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

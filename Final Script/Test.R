@@ -212,8 +212,9 @@ library(gridExtra)
 
 test_num = read.csv("Test/test_dbl.csv")
 summary(test_num)
+test_num_s = scale(test_num)
 
-test_pca = predict(train_p, newdata = test_num)
+test_pca = predict(train_p, newdata = test_num_s)
 test_pca = as.data.frame(test_pca)
 test_pca = test_pca[, 1:22]
 nrow(test_pca) == nrow(test_num)
@@ -223,6 +224,7 @@ nrow(test_pca) == nrow(test_num)
 
 library(cluster)
 library(fpc)
+library(gower)
 
 glimpse(typeCol_t)
 typeFct_t = typeCol_t %>% mutate_if(is.character, as.factor)
@@ -235,7 +237,30 @@ glimpse(new_test)
 
 
 # Look at the centers of PAM model
+summary(pam2)
 index = pam2$id.med
 # Extract corresponsing rows from `new_train`
 center = new_train[index, ]
+rownames(center) = c("1", "2")
 dim(center)
+# Calculate gower distance between test set and centers
+gower_df = rbind(new_test, center)
+test_dist = daisy(gower_df, metric = c("gower"))
+test_mat = as.matrix(test_dist)
+# Compare the dissimilarity values from centers
+# assign closer centers(clusters) to test observations
+clus_t = c()
+for(i in 1:1459) {
+  min = min(test_mat[1460, i], test_mat[1461, i])
+  clus_t[i] = ifelse(min == test_mat[1460, i], 1, 2)
+}
+clus_t
+
+# Combine clusters to test_pca
+test_df = cbind(test_pca, clus_t)
+dim(test_df)
+
+
+# Run Model ---------------------------------------------------------------
+
+
