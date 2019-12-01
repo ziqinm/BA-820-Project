@@ -8,9 +8,9 @@ library(skimr)
 library("corrplot")
 library(gridExtra)
 
-train_num = read_csv("Subsets/train_n.csv")
+train_num = read.csv("Subsets/train_n.csv")
 summary(train_num)
-train_num = as.data.frame(train_num)
+# train_num = as.data.frame(train_num)
 
 pca_cor = cor(train_num)
 corrplot(pca_cor,

@@ -33,6 +33,7 @@ glimpse(new_train)
 ##### PAM algorithm #####
 
 diss_dist = daisy(new_train, metric = c("gower"))
+View(as.matrix(diss_dist)[1:10, 1:10])
 
 sil_width <- c(NA)
 for(i in 2:8){  

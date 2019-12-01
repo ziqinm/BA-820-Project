@@ -189,12 +189,9 @@ skim(typeCol)
 # Numeric variables: Replace with mean
 skim(train_num)
 summary(train_num)
-train_num$LotFrontage = replace_na(train_num$LotFrontage,
-                                   mean(train_num$LotFrontage, na.rm = TRUE))
-train_num$MasVnrArea = replace_na(train_num$MasVnrArea,
-                                  mean(train_num$MasVnrArea, na.rm = TRUE))
-train_num$GarageYrBlt = replace_na(train_num$GarageYrBlt,
-                                  mean(train_num$GarageYrBlt, na.rm = TRUE))
+test_num = test_num %>% 
+  mutate_all(~ifelse(is.na(.x), mean(.x, na.rm = TRUE), .x)) 
+
 # Parse years to ages
 # Age of Garage when sold
 train_num = train_num %>% 

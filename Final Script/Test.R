@@ -1,7 +1,7 @@
 options(stringsAsFactors = FALSE)
 
-#----------------------------------------#
-##### Data Cleaning #####
+# Data Cleaning -----------------------------------------------------------
+
 
 library(tidyverse)
 library(skimr)
@@ -140,8 +140,6 @@ ordered(scaleNum_t$OverallCond, levels = c("0", "1", "2", "3", "4", "5",
 scaleFct_t = cbind(scaleFct_t, scaleNum_t)
 glimpse(scaleFct_t)
 skim(scaleFct_t)
-# which(is.na(scaleFct_t), arr.ind=TRUE)   
-# row 1380 has NA, decided to add NA as a category
 test %>% select(-chrName, -scaleName) %>% glimpse() -> test_num
 
 
@@ -172,18 +170,9 @@ skim(typeCol_t)
 skim(test_num)
 summary(test_num)
 # Replace NA with colmean
-for (i in ncol(test_num)) {
-  x = colMeans(test_num[i], na.rm = TRUE)
-  test_num[[i]] = replace_na(test_num[[i]], x)
-  return(test_num[[i]])
-}
+test_num = test_num %>% 
+  mutate_all(~ifelse(is.na(.x), mean(.x, na.rm = TRUE), .x)) 
 
-test_num$LotFrontage = replace_na(test_num$LotFrontage,
-                                   mean(test_num$LotFrontage, na.rm = TRUE))
-test_num$MasVnrArea = replace_na(test_num$MasVnrArea,
-                                  mean(test_num$MasVnrArea, na.rm = TRUE))
-test_num$GarageYrBlt = replace_na(test_num$GarageYrBlt,
-                                   mean(test_num$GarageYrBlt, na.rm = TRUE))
 # Parse years to ages
 # Age of Garage when sold
 test_num = test_num %>% 
@@ -207,9 +196,46 @@ ncol(test_num)
 ncol(scaleFct_t)
 ncol(typeCol_t)
 
-write_csv(test_num, "Test/test_dbl.csv")           # <dbl>
-write_csv(scaleFct_t, "Test/scale_fct_test.csv")     # <fct>
-write_csv(typeCol_t, "Test/type_chr_test.csv")       # <chr>
+# write_csv(test_num, "Test/test_dbl.csv")           # <dbl>
+# write_csv(scaleFct_t, "Test/scale_fct_test.csv")     # <fct>
+# write_csv(typeCol_t, "Test/type_chr_test.csv")       # <chr>
 
 #----------------------------------------#
-##### PCA #####
+
+
+
+# PCA ---------------------------------------------------------------------
+
+library(factoextra)
+library(skimr)
+library(gridExtra)
+
+test_num = read.csv("Test/test_dbl.csv")
+summary(test_num)
+
+test_pca = predict(train_p, newdata = test_num)
+test_pca = as.data.frame(test_pca)
+test_pca = test_pca[, 1:22]
+nrow(test_pca) == nrow(test_num)
+
+
+# Assign Clusters ---------------------------------------------------------
+
+library(cluster)
+library(fpc)
+
+glimpse(typeCol_t)
+typeFct_t = typeCol_t %>% mutate_if(is.character, as.factor)
+glimpse(scaleFct_t)
+glimpse(test_num)
+
+new_test = cbind(typeFct_t, scaleFct_t, test_num)
+dim(new_test)
+glimpse(new_test)
+
+
+# Look at the centers of PAM model
+index = pam2$id.med
+# Extract corresponsing rows from `new_train`
+center = new_train[index, ]
+dim(center)
