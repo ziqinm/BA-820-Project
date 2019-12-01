@@ -21,12 +21,12 @@ corrplot(pca_cor,
 train_p=prcomp(train_num_s,center=TRUE,scale=TRUE)
 summary(train_p)
 fviz_screeplot(train_p,addlabels=T, ncp = 25)
-# Elbow: 13
+# Elbow: 11, 16, 19, 22
 get_eigenvalue(train_p)
-# first 12 components with eigenvalue > 1
-# 23 pcs explains 95% variance, will choose 23
+# first 11 components with eigenvalue > 1
+# 22 pcs explains ~93% variance, will choose 22
 eigen = get_eigenvalue(train_p)
-chart = head(eigen, 24)
+chart = head(eigen, 23)
 png("PCA Eigenvalues.png")
 eg = tableGrob(chart)
 grid.arrange(eg)
@@ -34,11 +34,7 @@ dev.off()
 
 
 ##### Max/min scale #####
-train_log = log(train_num)
 
-train_l_p=prcomp(train_log,center=TRUE,scale=TRUE)
-summary(train_p)
-fviz_screeplot(train_p,addlabels=T, ncp = 25)
 
 
 
