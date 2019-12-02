@@ -1,6 +1,10 @@
 {
-    "path" : "~/Documents/GitHub/BA-820-Project/Final Script",
+    "path" : "~/Documents/GitHub/BA-820-Project/Model",
     "sortOrder" : [
+        {
+            "ascending" : false,
+            "columnIndex" : 3
+        },
         {
             "ascending" : false,
             "columnIndex" : 2
