@@ -14,9 +14,7 @@ summary(train_orig)
 glimpse(train_orig)
 skim(train_orig)
 
-# ----------------------------- #
-
-##### Data Cleaning #####
+# Data Cleaning: train Set -------------------------------------------------
 
 # Remove `SalePrice` column
 train = train_orig %>% 
@@ -189,7 +187,7 @@ skim(typeCol)
 # Numeric variables: Replace with mean
 skim(train_num)
 summary(train_num)
-test_num = test_num %>% 
+train_num = train_num %>% 
   mutate_all(~ifelse(is.na(.x), mean(.x, na.rm = TRUE), .x)) 
 
 # Parse years to ages
@@ -232,8 +230,8 @@ write_csv(typeCol, "Subsets/type_chr.csv")       # <chr>
 
 
 # Modeling: `train_num` + all scales that can be factored
+#   LASSO
 #   Random Forest
-#   Boosting
 
 
 
