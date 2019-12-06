@@ -60,14 +60,5 @@ plot(silhouette(kw9$cluster, dist = dist(train_num_c)), col = 1:9, border = NA)
 
 ## Will choose k = 4
 
-# Split the cleaned data into `past` and `validation`, then save
-# set.seed(820)
-# SAMP = sample(1:nrow(ndf), 970)
-# past_num = ndf[SAMP, ]
-# valid_num = ndf[-SAMP, ]
-# 
-# write.csv(past_num, "Subsets/past_num.csv")
-# write.csv(valid_num, "Subsets/valid_num.csv")
-
 ndf = train_num[-outlier, ]
 write_csv(ndf, "Subsets/train_n.csv")

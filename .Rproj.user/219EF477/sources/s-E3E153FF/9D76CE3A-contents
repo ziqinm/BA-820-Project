@@ -1,6 +1,5 @@
 options(stringsAsFactors = FALSE)
 
-#EFA
 library(factoextra)
 library(corrplot)
 library(psych)
@@ -10,7 +9,9 @@ library(psy)
 scale = read_csv("Subsets/scale_fct.csv")
 glimpse(scale)
 
-## Convert scales to numeric
+
+# Convert scales to numeric -----------------------------------------------
+
 scaleCol = scale
 ## Systematically factored:
 # LotShape: Reg = 4, IR1 = 3, IR2 = 2, IR1 = 1
@@ -116,6 +117,9 @@ scaleCol$PavedDrive = replace_na(scaleCol$PavedDrive, 0)
 
 # Make an copy
 write_csv(scaleCol, "Subsets/scale_EFA.csv")
+
+
+# EFA ---------------------------------------------------------------------
 
 scaleCol_cor <- cor(scaleCol)
 cortest.bartlett(scaleCol_cor, nrow(scaleCol))

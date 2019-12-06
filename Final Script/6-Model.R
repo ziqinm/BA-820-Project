@@ -200,15 +200,14 @@ ncol(typeCol_t)
 # write_csv(scaleFct_t, "Test/scale_fct_test.csv")     # <fct>
 # write_csv(typeCol_t, "Test/type_chr_test.csv")       # <chr>
 
-#----------------------------------------#
-
-
 
 # PCA ---------------------------------------------------------------------
 
 library(factoextra)
 library(skimr)
 library(gridExtra)
+
+load("Model/pca.rda")
 
 test_num = read.csv("Test/test_dbl.csv")
 summary(test_num)
@@ -220,7 +219,7 @@ test_pca = test_pca[, 1:22]
 nrow(test_pca) == nrow(test_num)
 
 
-# Assign Clusters ---------------------------------------------------------
+# Assign Clusters: PAM ---------------------------------------------------------
 
 library(cluster)
 library(fpc)
@@ -237,6 +236,7 @@ glimpse(new_test)
 
 
 # Look at the centers of PAM model
+load("Model/pam.rda")
 summary(pam2)
 index = pam2$id.med
 # Extract corresponsing rows from `new_train`
@@ -261,6 +261,18 @@ test_df = cbind(test_pca, clus_t)
 dim(test_df)
 
 
-# Run Model ---------------------------------------------------------------
+# Assign Clusters: whatever ---------------------------------------------------------------
+
+
+
+# Predict Price: PAM -----------------------------------------------------------
+
+
+
+# Predict Price: whatever -------------------------------------------------
+
+
+# Recommendation
+# Recommendation ----------------------------------------------------------
 
 

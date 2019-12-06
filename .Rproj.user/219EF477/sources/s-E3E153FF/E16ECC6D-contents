@@ -14,7 +14,9 @@ summary(train_orig)
 glimpse(train_orig)
 skim(train_orig)
 
-# Data Cleaning: train Set -------------------------------------------------
+##### Data Cleaning #####
+
+# Column Split ------------------------------------------------------------
 
 # Remove `SalePrice` column
 train = train_orig %>% 
@@ -50,7 +52,9 @@ typeCol = chrCol %>%
 scaleFct = chrCol %>% 
   select(-categName)
 
-### Convert scale-like character variables into factors ###
+
+# Convert scale-like character variables into factors ---------------------
+
 # LotShape: Reg = 4, IR1 = 3, IR2 = 2, IR1 = 1
 scaleFct$LotShape = factor(scaleFct$LotShape)
 fct_explicit_na(scaleFct$LotShape, "NA")
@@ -156,8 +160,10 @@ ordered(scaleNum$OverallCond, levels = c("0", "1", "2", "3", "4", "5",
 scaleFct = cbind(scaleFct, scaleNum)
 glimpse(scaleFct)
 skim(scaleFct)
-# which(is.na(scaleFct), arr.ind=TRUE)   
-# row 1380 has NA, decided to add NA as a category
+
+
+# Numeric Variables -------------------------------------------------------
+
 train %>% select(-chrName, -scaleName) %>% glimpse() -> train_num
 
 
@@ -165,7 +171,7 @@ train %>% select(-chrName, -scaleName) %>% glimpse() -> train_num
 skim(typeCol)
 # Replace NAs with "N/A" as a new type
 typeCol[is.na(typeCol)] = "N/A"
-# Convert months to quarters
+# Convert months to quarters as a type column
 quart = function(x) {
   if (x %in% c(1, 2, 3)) {
     Quarter = "I"
@@ -184,13 +190,13 @@ typeCol = typeCol %>% select(-MoSold)
 skim(typeCol)
 
 
-# Numeric variables: Replace with mean
+# Replace with mean
 skim(train_num)
 summary(train_num)
 train_num = train_num %>% 
   mutate_all(~ifelse(is.na(.x), mean(.x, na.rm = TRUE), .x)) 
 
-# Parse years to ages
+## Parse years to ages ##
 # Age of Garage when sold
 train_num = train_num %>% 
   mutate(GarageAge = train_num$YrSold - train_num$GarageYrBlt)
@@ -208,6 +214,8 @@ summary(train_num)
 train_num = train_num %>% 
   select(-YearBuilt, -GarageYrBlt, -YearRemodAdd)
 
+
+# Export ------------------------------------------------------------------
 
 ncol(train_num)
 ncol(scaleFct)
@@ -227,9 +235,7 @@ write_csv(typeCol, "Subsets/type_chr.csv")       # <chr>
 # PCA: reduce numeric variable dimensions
 # PAM: assign clusers to non-numeric variables
 
-
-
-# Modeling: `train_num` + all scales that can be factored
+# SML
 #   LASSO
 #   Random Forest
 
