@@ -10,7 +10,6 @@ library(gridExtra)
 
 train_num = read.csv("Subsets/train_n.csv")
 summary(train_num)
-# train_num = as.data.frame(train_num)
 
 pca_cor = cor(train_num)
 corrplot(pca_cor,
@@ -75,8 +74,15 @@ nrow(train_pca) == nrow(train_num)
 # train_pca = as.data.frame(train_pca)
 # nrow(train_pca) == nrow(train_num)
 
+# Split into 'past' and 'valid' to validate PAM clustering and SML methods 
 # Export PCs to profiling
-write_csv(train_pca, "Model/train_pca.csv")
+set.seed(820)
+SAMP = sample(1:nrow(train_pca), 970)
+past_pca = train_pca[SAMP, ]
+valid_pca = train_pca[-SAMP, ]
+
+write_csv(past_pca, "Model/past_pca.csv")
+write_csv(valid_pca, "Model/valid_pca.csv")
 
 
 
