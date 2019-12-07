@@ -5,6 +5,7 @@ library(cluster)
 library(factoextra)
 library(fpc)
 library(gower)
+library(xgboost)
 
 
 # Load data ---------------------------------------------------------------
@@ -78,9 +79,6 @@ write_csv(past_df, "Model/past_df.csv")
 write_csv(valid_df, "Model/valid_df.csv")
 
 save(pam2, file = "Model/pam.rda")
-
-
-# Prediction: XGboost -----------------------------------------------------
 
 
 
