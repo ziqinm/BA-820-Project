@@ -1,0 +1,22 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1575750866956.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "A9898B00",
+    "lastKnownWriteTime" : 1575660990,
+    "last_content_update" : 1575660990,
+    "path" : "~/Documents/GitHub/BA-820-Project/Final Script/4-PAM.R",
+    "project_path" : "Final Script/4-PAM.R",
+    "properties" : {
+        "cursorPosition" : "81,0",
+        "scrollLine" : "70"
+    },
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
