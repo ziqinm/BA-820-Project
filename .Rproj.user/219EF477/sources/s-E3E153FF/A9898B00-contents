@@ -70,6 +70,7 @@ dim(train_df)
 
 
 # Split dataset to find a better clustering method for future data
+set.seed(820)
 SAMP = sample(1:nrow(train_pca), 970)
 past_df = train_df[SAMP, ]
 valid_df = train_df[-SAMP, ]
@@ -77,9 +78,6 @@ write_csv(past_df, "Model/past_df.csv")
 write_csv(valid_df, "Model/valid_df.csv")
 
 save(pam2, file = "Model/pam.rda")
-
-
-# Prediction: KNN ---------------------------------------------------------
 
 
 # Prediction: XGboost -----------------------------------------------------
