@@ -5,14 +5,14 @@
     "dirty" : false,
     "encoding" : "UTF-8",
     "folds" : "2|16|202|0|\n203|6|220|0|\n221|20|263|0|\n",
-    "hash" : "0",
+    "hash" : "3016614227",
     "id" : "3618DB80",
-    "lastKnownWriteTime" : 1575772831,
-    "last_content_update" : 1575772848640,
+    "lastKnownWriteTime" : 1575782976,
+    "last_content_update" : 1575782976100,
     "path" : "~/Documents/GitHub/BA-820-Project/Final Script/6-Model.R",
     "project_path" : "Final Script/6-Model.R",
     "properties" : {
-        "cursorPosition" : "266,0",
+        "cursorPosition" : "273,0",
         "scrollLine" : "0",
         "tempName" : "Untitled1"
     },

@@ -266,8 +266,8 @@ dim(test_df)
 
 
 
-
+ID = test_orig$Id
+submission = cbind(ID, price_pred)
 
 # Recommendation ----------------------------------------------------------
-
 
