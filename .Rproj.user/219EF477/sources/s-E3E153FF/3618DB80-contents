@@ -196,9 +196,9 @@ ncol(test_num)
 ncol(scaleFct_t)
 ncol(typeCol_t)
 
-# write_csv(test_num, "Test/test_dbl.csv")           # <dbl>
-# write_csv(scaleFct_t, "Test/scale_fct_test.csv")     # <fct>
-# write_csv(typeCol_t, "Test/type_chr_test.csv")       # <chr>
+write_csv(test_num, "Test/test_dbl.csv")           # <dbl>
+write_csv(scaleFct_t, "Test/scale_fct_test.csv")     # <fct>
+write_csv(typeCol_t, "Test/type_chr_test.csv")       # <chr>
 
 
 # PCA ---------------------------------------------------------------------
