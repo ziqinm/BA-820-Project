@@ -1,5 +1,4 @@
 options(stringsAsFactors=FALSE)
-options(digits=3)
 
 
 library(tidyverse)
