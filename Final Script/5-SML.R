@@ -118,6 +118,7 @@ xgmod = xgboost(data = input_mat[, -25],
                 objective = "reg:squarederror",
                 nrounds = 15)
 
+save(xgmod, file = "Model/xgmod.rda")
 
 
 
