@@ -1,4 +1,5 @@
 options(stringsAsFactors = FALSE)
+options(scipen=999)
 
 
 # LASSO -------------------------------------------------------------------
@@ -63,11 +64,10 @@ library(gbm)
 
 input = read_csv("Model/past_df.csv")
 glimpse(input)
-input_d = dummy_cols(input, select_columns = "clus") %>% select(-clus)
 dim(input)
 
 lf <- "price ~ PC1+PC2+PC3+PC4+PC5+PC6+PC7+PC8+PC9+PC10+PC11+PC12+PC13+PC14+PC15+PC16+
-PC17+PC18+PC19+PC20+PC21+PC22+clus_1+clus_2"
+PC17+PC18+PC19+PC20+PC21+PC22+clus"
 f <- as.formula(lf)
 x_train <- model.matrix(f,input)[ ,-1]
 y_train <- input$price
