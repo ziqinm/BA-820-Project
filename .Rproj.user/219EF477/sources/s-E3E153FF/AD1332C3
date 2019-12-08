@@ -5,15 +5,15 @@
     "dirty" : false,
     "encoding" : "UTF-8",
     "folds" : "",
-    "hash" : "3904122065",
+    "hash" : "0",
     "id" : "AD1332C3",
     "lastKnownWriteTime" : 1575774072,
     "last_content_update" : 1575774072214,
     "path" : "~/Documents/GitHub/BA-820-Project/Final Script/2-KMeans.R",
     "project_path" : "Final Script/2-KMeans.R",
     "properties" : {
-        "cursorPosition" : "35,0",
-        "scrollLine" : "28"
+        "cursorPosition" : "65,0",
+        "scrollLine" : "21"
     },
     "relative_order" : 4,
     "source_on_save" : false,

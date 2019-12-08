@@ -1,0 +1,23 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1575820802852.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "13DBCC62",
+    "lastKnownWriteTime" : 1575822093,
+    "last_content_update" : 1575822093971,
+    "path" : "~/Documents/GitHub/BA-820-Project/Final Script/5-SML.R",
+    "project_path" : "Final Script/5-SML.R",
+    "properties" : {
+        "cursorPosition" : "102,18",
+        "scrollLine" : "94",
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 9,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
