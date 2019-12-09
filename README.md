@@ -1,4 +1,4 @@
-# BA-820-Project
+# BA-820-Project Team 8
 
 ----- Contributors -----
 
