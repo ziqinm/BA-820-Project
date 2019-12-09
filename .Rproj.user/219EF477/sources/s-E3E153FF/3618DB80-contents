@@ -240,7 +240,9 @@ load("Model/pam.rda")
 summary(pam2)
 index = pam2$id.med
 # Extract corresponsing rows from `new_train`
+new_train = read.csv("Model/new_train.csv")
 center = new_train[index, ]
+center = center %>% select(-X)
 rownames(center) = c("1", "2")
 dim(center)
 # Calculate gower distance between test set and centers
@@ -268,15 +270,16 @@ library(tidyverse)
 library(xgboost)
 library(yardstick)
 
-test_d = dummy_cols(test_df, select_columns = "clus") %>% select(-clus)
-test_d = test_d %>% select(PC1:PC22, clus_1, clus_2)
+test_d = dummy_cols(test_df, select_columns = "clus_t") %>% select(-clus_t)
+test_d = test_d %>% select(PC1:PC22, clus_t_1, clus_t_2)
+names(test_d)[23] = paste("clus_1")
+names(test_d)[24] = paste("clus_2")
 
 load("Model/xgmod.rda")
 
-price_pred = predict(xgmod, as.matrix(valid_d))
+price_pred = predict(xgmod, as.matrix(test_d))
 
 ID = test_orig$Id
 submission = cbind(ID, price_pred)
-
-# Recommendation ----------------------------------------------------------
+write.csv(submission, "Test/submission.csv")
 
