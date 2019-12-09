@@ -12,7 +12,7 @@ The data source  a house price dataset from a Regression competation on [Kaggle]
 
 Our entire work history and updates will be commited to this repository. To look up files/scripts, Please refer the index below.
 
-**Note**: 
+**Note**: the final script for report and presentation are all included in `Final Script` folder. Other folders are directories for in-process outcomes.
 
 ----- File Index -----
 
