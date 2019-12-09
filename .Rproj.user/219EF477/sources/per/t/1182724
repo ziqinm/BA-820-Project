@@ -1,0 +1,22 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1575862360026.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2426097776",
+    "id" : "1182724",
+    "lastKnownWriteTime" : 1575862375,
+    "last_content_update" : 1575862375138,
+    "path" : "~/Documents/GitHub/BA-820-Project/Final Script/7-Year Sold.R",
+    "project_path" : "Final Script/7-Year Sold.R",
+    "properties" : {
+        "cursorPosition" : "25,39",
+        "scrollLine" : "16"
+    },
+    "relative_order" : 7,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

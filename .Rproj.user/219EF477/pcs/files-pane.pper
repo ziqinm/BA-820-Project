@@ -1,13 +1,13 @@
 {
-    "path" : "~/Documents/GitHub/BA-820-Project/Final Script",
+    "path" : "~/Documents/GitHub/BA-820-Project",
     "sortOrder" : [
         {
-            "ascending" : false,
-            "columnIndex" : 3
+            "ascending" : true,
+            "columnIndex" : 2
         },
         {
             "ascending" : false,
-            "columnIndex" : 2
+            "columnIndex" : 3
         }
     ]
 }
