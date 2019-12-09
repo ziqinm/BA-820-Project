@@ -14,7 +14,8 @@ Our entire work history and updates will be commited to this repository. To look
 
 ----- File Index -----
 
-`data description.txt`: meanings of columns and the values.
+`Final Script`: final scripts we submitted for grading
+- 
 
 `train.csv`: the training set.
 
