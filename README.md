@@ -12,11 +12,21 @@ The data source  a house price dataset from a Regression competation on [Kaggle]
 
 Our entire work history and updates will be commited to this repository. To look up files/scripts, Please refer the index below.
 
+**Note**: 
+
 ----- File Index -----
 
 `Final Script`: final scripts we submitted for grading
-+ sd
++ 0 - 5: our codes for modeling
++ 6: the shell script for new input. Will return a price estimate.
++ 7: code for plotting time variables
 
-`train.csv`: the training set.
+`Mid Report`: our working history for mid-report, including a pdf version of analysis and plots
 
-`test.csv`: the test set.
+`Model`: useful outputs from each step that are used to build the shell script 
+
+`Original Data`: files downloaded directly from Kaggle, including a training set, a test set(without price column), a data description file, and a sample outcome of model.
+
+`Subsets`: useful outputs from each step that are NOT used in the shell script
+
+`Test`: outputs of test data when running the shell script
